@@ -168,7 +168,7 @@ void write_sparse_matrix(const std::string &infile, std::ostream &output, std::m
 void write_mapping(std::ostream &output, const std::map<std::string,unsigned int> &mapping) {
 	std::map<std::string,unsigned int>::const_iterator mapping_iter = mapping.begin();
 	for(; mapping_iter != mapping.end(); ++mapping_iter) {
-		output << mapping->first << "," << mapping->second << std::endl;
+		output << mapping_iter->first << "," << mapping_iter->second << std::endl;
 	}
 }
 
@@ -181,24 +181,39 @@ int create_sparse_matrix(const std::string &infile, const std::string &matrix_fi
 	else {
 		std::ofstream file(matrix_file.c_str());
 		if(file) {
-			write_sparse_matrix(matrix_file.c_str, file, mapping);
+			write_sparse_matrix(infile, file, mapping);
 			if(!file) {
 				std::ostringstream oss;
-				oss << matrix_file.c_str << ": " << strerror(errno);
+				oss << matrix_file << ": " << strerror(errno);
 
 				throw std::runtime_error(oss.str());
 			}
 		}
 		else {
 			std::ostringstream oss;
-			oss << matrix_file.c_str << ": " << strerror(errno);
+			oss << matrix_file << ": " << strerror(errno);
 
 			throw std::runtime_error(oss.str());
 		}
 	}
 
 	if(!mapping_file.empty()) {
-		
+		std::ofstream file(mapping_file.c_str());
+		if(file) {
+			write_mapping(file, mapping);
+			if(!file) {
+				std::ostringstream oss;
+				oss << mapping_file << ": " << strerror(errno);
+
+				throw std::runtime_error(oss.str());
+			}
+		}
+		else {
+			std::ostringstream oss;
+			oss << mapping_file << ": " << strerror(errno);
+
+			throw std::runtime_error(oss.str());
+		}
 	}
 
 	return 0;

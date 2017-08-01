@@ -1,0 +1,29 @@
+../communities/results.15.w.mat.communities.gz
+Scoring functions based on internal connectivity
+                           min           max           avg           std
+function
+Internal Density  2.735487e-07  4.551698e-06  8.626767e-07  1.034819e-06
+Edges inside      2.073000e+03  5.206229e+07  3.520181e+06  1.297371e+07
+Average Degree    8.910472e-02  1.067392e+01  1.050331e+00  2.584176e+00
+FOMD              7.618225e-02  4.880384e-01  2.325123e-01  1.271571e-01
+TPR               0.000000e+00  1.031466e-03  7.720411e-05  2.554521e-04
+
+Scoring functions based on external connectivity
+                    min        max        avg           std
+function
+Expansion  2.874692e+00  20.042528  14.358526  3.813287e+00
+Cut Ratio  8.163126e-07   0.000002   0.000001  1.835224e-07
+
+Scoring functions that combine internal and external connectivity
+                       min           max          avg          std
+function
+Conductance       0.212176      0.994141     0.924721     0.191268
+Normalized Cut    0.514070      0.999602     0.958386     0.119240
+Maximum-ODF     904.000000  16612.000000  6009.400000  5173.543979
+Average-ODF       2.874692     20.042528    14.358526     3.813287
+Flake-ODF         0.093345      0.996870     0.916078     0.222017
+
+Scoring function based on a network model
+                           value
+function
+Modularity (no overlap)  0.00586

@@ -16,5 +16,5 @@ set output "modularity.eps"
 set key autotitle columnhead
 
 plot "results.csv" using 1:2 with linespoints linestyle 4 ,\
-     "results.csv" using 1:3 with linespoints linestyle 4
+     "results.csv" using 1:3 with linespoints linestyle 5
 
